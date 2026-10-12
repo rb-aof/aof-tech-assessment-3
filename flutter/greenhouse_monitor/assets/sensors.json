@@ -1,0 +1,8 @@
+[
+  { "id": "gh-a-01", "name": "Bench A1", "zone": "Propagation", "plant": "Basil seedlings" },
+  { "id": "gh-a-02", "name": "Bench A2", "zone": "Propagation", "plant": "Tomato seedlings" },
+  { "id": "gh-b-01", "name": "Bed B1", "zone": "Vegetables", "plant": "Cherry tomatoes" },
+  { "id": "gh-b-02", "name": "Bed B2", "zone": "Vegetables", "plant": "Bell peppers" },
+  { "id": "gh-c-01", "name": "Pot C1", "zone": "Succulents", "plant": "Aloe vera" },
+  { "id": "gh-c-02", "name": "Pot C2", "zone": "Succulents", "plant": "Echeveria" }
+]

@@ -1,0 +1,123 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Backend" : {
+
+    },
+    "Backend.plist is missing from the app bundle." : {
+
+    },
+    "BaseURL in Backend.plist is not a valid https URL." : {
+
+    },
+    "CandidateEmail \"%@\" in Backend.plist is not a valid email address." : {
+
+    },
+    "Care log requests" : {
+
+    },
+    "Clear cached readings" : {
+
+    },
+    "Debug menu" : {
+
+    },
+    "Done" : {
+
+    },
+    "Failure rate" : {
+
+    },
+    "Greenhouse" : {
+
+    },
+    "History (%lld)" : {
+
+    },
+    "Humidity" : {
+
+    },
+    "Idempotent replays" : {
+
+    },
+    "In-app mock" : {
+
+    },
+    "Latency" : {
+
+    },
+    "Latest" : {
+
+    },
+    "Loading sensors…" : {
+
+    },
+    "Network" : {
+
+    },
+    "No readings yet" : {
+
+    },
+    "No sensors" : {
+
+    },
+    "Offline" : {
+
+    },
+    "Refresh stats" : {
+
+    },
+    "Requests" : {
+
+    },
+    "Reset server data" : {
+
+    },
+    "Server" : {
+
+    },
+    "Server stats" : {
+
+    },
+    "Set CandidateEmail in ios/GreenhouseMonitor/Resources/Backend.plist to the email address you applied with." : {
+
+    },
+    "Soil moisture" : {
+
+    },
+    "Stored care logs" : {
+
+    },
+    "Temperature" : {
+
+    },
+    "The request timed out." : {
+
+    },
+    "The sensor could not be found." : {
+
+    },
+    "The server did not accept your email address. Check CandidateEmail in Backend.plist." : {
+
+    },
+    "The server rejected the request (%lld)." : {
+
+    },
+    "The server returned an error (%lld)." : {
+
+    },
+    "The server sent an unexpected response." : {
+
+    },
+    "Updated" : {
+
+    },
+    "Using offline mock data" : {
+
+    },
+    "You appear to be offline." : {
+
+    }
+  },
+  "version" : "1.0"
+}

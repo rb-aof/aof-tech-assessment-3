@@ -9,12 +9,11 @@ Thanks for taking the time to do this assessment. It mirrors the kind of work yo
 | | |
 |---|---|
 | Time box | About **4 hours** in total. Please don't go much beyond that. |
-| Required | iOS: Swift and SwiftUI |
-| Optional | Flutter bonus task |
-| Tasks | 1 bug fix, 1 small feature, 1 bigger feature, 1 optional bonus |
+| Platforms | iOS (Swift and SwiftUI) for tasks 1–3, Flutter for task 4 |
+| Tasks | 4 tasks: a bug fix, a small feature, a bigger feature and a Flutter feature. **You choose which ones to do.** |
 | Deliverable | **One pull request per task**, plus a small PR with your `SUBMISSION_NOTES.md` (see [Submitting](#submitting)) |
 
-> **You are not expected to finish everything.** Prioritising, making trade-offs and telling us what you left out (and why) is part of what we assess. A well-reasoned, partly finished feature beats a rushed, complete one.
+> **You choose which tasks to do.** Four hours is not enough for all four tasks, and that's intentional. Pick the tasks, or parts of tasks, that you think best show your skills within the time box, and tell us in `SUBMISSION_NOTES.md` what you picked and why. Prioritising and making trade-offs is part of what we assess. A well-reasoned, partly finished feature beats a rushed, complete one.
 
 ## Getting started
 
@@ -22,7 +21,7 @@ Thanks for taking the time to do this assessment. It mirrors the kind of work yo
 
 - Xcode 16 or newer
 - iOS 17 simulator or newer
-- Optional, for the bonus: Flutter 3.32 or newer (stable channel)
+- Flutter 3.32 or newer (stable channel), only if you pick task 4
 
 ### Backend setup (required)
 
@@ -60,7 +59,7 @@ xcodebuild test -project GreenhouseMonitor.xcodeproj -scheme GreenhouseMonitor \
 
 The project uses Xcode's folder-synchronised groups, so any file you add under `ios/GreenhouseMonitor/` or `ios/GreenhouseMonitorTests/` is part of the build automatically. There are no third-party dependencies, and you may add some if you can justify them.
 
-### Flutter (only for the bonus)
+### Flutter (only for task 4)
 
 ```bash
 cd flutter/greenhouse_monitor
@@ -93,7 +92,14 @@ flutter/greenhouse_monitor/   A Flutter version of the list and detail screens
 
 ## Tasks
 
-We suggest doing them in this order, though it's up to you.
+Which tasks you do, and in what order, is your decision. All four count equally; none of them is a bonus. Rough sizes to help you plan:
+
+| Task | Rough effort |
+|---|---|
+| 1. Bug fix | Small (about 0.5–1 h) |
+| 2. Moisture thresholds (iOS) | Medium (about 1.5–2 h) |
+| 3. Offline-first care log (iOS) | Large (about 3–4 h) |
+| 4. Moisture thresholds (Flutter) | Medium (about 1–1.5 h) |
 
 ### 1. Bug fix: duplicated readings
 
@@ -142,9 +148,9 @@ Growers want to record what they did to a plant (watered it, fertilised it, move
 - Show a pending-uploads indicator on the sensor list.
 - Anything else you think a real user would need. Tell us about it in the PR description.
 
-### 4. Bonus (optional): Flutter
+### 4. Flutter: moisture thresholds
 
-Implement **task 2 (moisture thresholds)** in the Flutter app under `flutter/greenhouse_monitor`. You may add packages, for example for persistence. Widget and unit tests are welcome. Skipping this costs you nothing.
+Implement **task 2 (moisture thresholds)** in the Flutter app under `flutter/greenhouse_monitor`. You may add packages, for example for persistence. Widget and unit tests are welcome. This is a full task, just like tasks 1–3.
 
 ## What we look at
 
@@ -174,7 +180,7 @@ Submit your work as **pull requests** against `main` in the repository we gave y
    | 1. Bug fix | `task-1-bug-fix` | `Task 1: Fix duplicated readings` |
    | 2. Moisture thresholds | `task-2-moisture-thresholds` | `Task 2: Moisture thresholds` |
    | 3. Offline-first care log | `task-3-care-log` | `Task 3: Offline-first care log` |
-   | 4. Flutter bonus (optional) | `task-4-flutter-thresholds` | `Task 4: Flutter moisture thresholds` |
+   | 4. Flutter moisture thresholds | `task-4-flutter-thresholds` | `Task 4: Flutter moisture thresholds` |
    | Submission notes | `submission-notes` | `Submission notes` |
 
 2. **Open a pull request into `main` for each task branch.**

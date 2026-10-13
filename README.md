@@ -8,7 +8,7 @@ Thanks for taking the time to do this assessment. It mirrors the kind of work yo
 
 | | |
 |---|---|
-| Time box | About **8 hours** in total. Please don't go much beyond that. |
+| Time box | About **4 hours** in total. Please don't go much beyond that. |
 | Required | iOS: Swift and SwiftUI |
 | Optional | Flutter bonus task |
 | Tasks | 1 bug fix, 1 small feature, 1 bigger feature, 1 optional bonus |

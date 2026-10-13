@@ -6,7 +6,7 @@
 - [ ] 1. Bug fix: duplicated readings
 - [ ] 2. Moisture thresholds
 - [ ] 3. Offline-first care log
-- [ ] 4. Flutter bonus
+- [ ] 4. Flutter: moisture thresholds
 - [ ] Submission notes
 
 **Status:** done / partial (what's missing is listed below)

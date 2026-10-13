@@ -4,18 +4,18 @@ Submit this file in its own pull request (branch `submission-notes`) once you've
 
 ## Summary
 
-| Task | Status (done / partial / not started) | Pull request |
+| Task | Status (done / partial / not picked) | Pull request |
 |---|---|---|
 | 1. Bug fix | | |
 | 2. Moisture thresholds | | |
 | 3. Offline-first care log | | |
-| 4. Flutter bonus | | |
+| 4. Flutter: moisture thresholds | | |
 
 Roughly how long did you spend in total?
 
 ## Prioritisation
 
-What did you choose to do first, skip or simplify, and why?
+Which tasks did you pick for the 4 hours, and why? What did you skip or simplify?
 
 -
 

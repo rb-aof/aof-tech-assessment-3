@@ -1,13 +1,51 @@
 import SwiftUI
+import Foundation
 
 struct SensorDetailView: View {
     @State var viewModel: SensorDetailViewModel
+	@State private var showingThresholdView = false
+	
+	private func rangeColumn(
+		value: Int,
+		label: String
+	) -> some View {
+		VStack(spacing: 4) {
+			Text(Double(value) / 100, format: .percent).font(.title3)
+				.fontWeight(.medium)
+			
+			Text(label)
+				.font(.subheadline)
+				.foregroundStyle(.secondary)
+		}
+		.frame(maxWidth: .infinity)
+	}
 
     var body: some View {
         List {
             if let errorMessage = viewModel.errorMessage {
                 ErrorBanner(message: errorMessage)
             }
+			
+			Section {
+				HStack {
+					rangeColumn(value: 10, label: "Min")
+					Text("−")
+						.foregroundStyle(.secondary)
+					rangeColumn(value: 20, label: "Max")
+				}
+				.frame(maxWidth: .infinity)
+				.padding(.vertical, 8)
+			} header: {
+				HStack {
+					Text("Moisture range")
+					Spacer()
+					Button("Edit") {
+						showingThresholdView = true
+					}
+					.tint(.green)
+				}
+			}
+
 
             Section("Latest") {
                 if let latest = viewModel.latest {
@@ -37,6 +75,11 @@ struct SensorDetailView: View {
                 Text("History (\(viewModel.readings.count))")
             }
         }
+		.sheet(isPresented: $showingThresholdView) {
+			MoistureThresholdView(
+				
+			)
+		}
         .navigationTitle(viewModel.sensor.name)
         .refreshable {
             await viewModel.refresh()
@@ -57,4 +100,24 @@ private struct ReadingRow: View {
         }
         .font(.callout)
     }
+}
+
+#Preview {
+	makeSensorDetailPreview()
+}
+
+@MainActor
+private func makeSensorDetailPreview() -> some View {
+	//{ "id": "gh-a-01", "name": "Bench A1", "zone": "Propagation", "plant": "Basil seedlings" },
+	let sensor = Sensor(id: "gh-a-01", name: "Bench A1", zone: "Propagation", plant: "Basil seedlings")
+	
+	let store = ReadingStore(fileURL: ReadingStore.defaultFileURL)
+	
+	let api = MockGreenhouseAPI(sensors: store.sensors)
+	
+	let syncService = SyncService(api: api, store: store)
+
+	let viewModel = SensorDetailViewModel(sensor: sensor, store: store, syncService: syncService)
+
+	return SensorDetailView(viewModel: viewModel)
 }

@@ -67,7 +67,7 @@
     "Loading sensors…" : {
 
     },
-    "Minimum must be lower than maximum. Values: 0–100%." : {
+    "Minimum must be lower than or equal to maximum. Values: 0–100%." : {
 
     },
     "Moisture range" : {
@@ -75,6 +75,28 @@
     },
     "Moisture thresholds" : {
 
+    },
+    "moisture.aboveMaximum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, soil moisture %2$g%%, above maximum of %3$g%%"
+          }
+        }
+      }
+    },
+    "moisture.belowMinimum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, soil moisture %2$g%%, below minimum of %3$g%%"
+          }
+        }
+      }
     },
     "Network" : {
 

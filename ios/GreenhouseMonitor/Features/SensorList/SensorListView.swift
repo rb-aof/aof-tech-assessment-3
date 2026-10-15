@@ -125,5 +125,7 @@ struct ErrorBanner: View {
         Label(message, systemImage: "exclamationmark.triangle")
             .foregroundStyle(.orange)
             .font(.footnote)
+			.accessibilityLabel(message)
+			.accessibilityAddTraits(.updatesFrequently)
     }
 }

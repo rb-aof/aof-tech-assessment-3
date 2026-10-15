@@ -27,6 +27,8 @@
 			membershipExceptions = (
 				Features/MoistureThreshold/MoistureThresholdView.swift,
 				Features/MoistureThreshold/MoistureThresholdViewModel.swift,
+				Models/MoistureThreshold.swift,
+				Services/MoistureThresholdHandler.swift,
 			);
 			target = 4D1A00000000000000000102 /* GreenhouseMonitorTests */;
 		};

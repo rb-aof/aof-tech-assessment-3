@@ -10,16 +10,10 @@ import SwiftUI
 struct MoistureThresholdView: View {
 	@Environment(\.dismiss) private var dismiss
 	
-	@State private var minimum = "10"
-	@State private var maximum = "20"
+	@State private var viewModel: MoistureThresholdViewModel
 	
-	private var isValid: Bool {
-		guard let min = Int(minimum),
-			  let max = Int(maximum) else {
-			return false
-		}
-		
-		return min >= 0 && max <= 100 && min < max
+	init(viewModel: MoistureThresholdViewModel) {
+		self.viewModel = viewModel
 	}
 	
 	var body: some View {
@@ -41,16 +35,30 @@ struct MoistureThresholdView: View {
 					
 					thresholdField(
 						title: "Minimum (%)",
-						value: $minimum
+						value: Binding(
+							get: {
+								viewModel.moistureThreshold.isEmpty ? "" : Int(viewModel.moistureThreshold.minMoisture).description
+							},
+							set: { newValue in
+								viewModel.moistureThreshold.minMoisture = Double(newValue) ?? 0
+							}
+						)
 					)
 					
 					thresholdField(
 						title: "Maximum (%)",
-						value: $maximum
+						value: Binding(
+							get: {
+								viewModel.moistureThreshold.isEmpty ? "" : Int(viewModel.moistureThreshold.maxMoisture).description
+							},
+							set: { newValue in
+								viewModel.moistureThreshold.maxMoisture = Double(newValue) ?? 0
+							}
+						)
 					)
 					
-					if !minimum.isEmpty && !maximum.isEmpty && !isValid {
-						Text("Minimum must be lower than maximum. Values: 0–100%.")
+					if !viewModel.moistureThreshold.isValid {
+						Text("Minimum must be lower than or equal to maximum. Values: 0–100%.")
 							.font(.footnote)
 							.foregroundStyle(.secondary)
 					}
@@ -58,8 +66,7 @@ struct MoistureThresholdView: View {
 				
 				Section {
 					Button(role: .destructive) {
-						minimum = ""
-						maximum = ""
+						viewModel.clear()
 					} label: {
 						Label("Clear range", systemImage: "trash").tint(.red)
 					}
@@ -77,11 +84,11 @@ struct MoistureThresholdView: View {
 				
 				ToolbarItem(placement: .topBarTrailing) {
 					Button("Save") {
-						// Persist the thresholds here.
+						viewModel.save()
 						dismiss()
 					}
 					.tint(.green)
-					.disabled(!isValid)
+					.disabled(!viewModel.moistureThreshold.isValid)
 				}
 			}
 		}
@@ -105,11 +112,20 @@ struct MoistureThresholdView: View {
 					RoundedRectangle(cornerRadius: 12)
 						.stroke(.quaternary, lineWidth: 1)
 				}
+				.onChange(of: value.wrappedValue) { _, newValue in
+					let trimmedValue = String(
+						newValue.drop(while: { $0 == "0" })
+					)
+					
+					if trimmedValue != newValue {
+						value.wrappedValue = trimmedValue
+					}
+				}
 		}
 		.padding(.vertical, 6)
 	}
 }
 
-#Preview {
-	MoistureThresholdView()
-}
+//#Preview {
+//	MoistureThresholdView(viewModel: <#T##MoistureThresholdViewModel#>)
+//}

@@ -5,12 +5,19 @@ struct SensorDetailView: View {
     @State var viewModel: SensorDetailViewModel
 	@State private var showingThresholdView = false
 	
+	
+	init(viewModel: SensorDetailViewModel, showingThresholdView: Bool = false) {
+		self.viewModel = viewModel
+		
+		self.showingThresholdView = showingThresholdView
+	}
+	
 	private func rangeColumn(
-		value: Int,
+		value: Double,
 		label: String
 	) -> some View {
 		VStack(spacing: 4) {
-			Text(Double(value) / 100, format: .percent).font(.title3)
+			Text(value / 100, format: .percent).font(.title3)
 				.fontWeight(.medium)
 			
 			Text(label)
@@ -27,14 +34,16 @@ struct SensorDetailView: View {
             }
 			
 			Section {
-				HStack {
-					rangeColumn(value: 10, label: "Min")
-					Text("−")
-						.foregroundStyle(.secondary)
-					rangeColumn(value: 20, label: "Max")
+				if !viewModel.moistureThreshold.isEmpty {
+					HStack {
+						rangeColumn(value: viewModel.moistureThreshold.minMoisture, label: "Min")
+						Text("−")
+							.foregroundStyle(.secondary)
+						rangeColumn(value: viewModel.moistureThreshold.maxMoisture, label: "Max")
+					}
+					.frame(maxWidth: .infinity)
+					.padding(.vertical, 8)
 				}
-				.frame(maxWidth: .infinity)
-				.padding(.vertical, 8)
 			} header: {
 				HStack {
 					Text("Moisture range")
@@ -75,9 +84,11 @@ struct SensorDetailView: View {
                 Text("History (\(viewModel.readings.count))")
             }
         }
-		.sheet(isPresented: $showingThresholdView) {
+		.sheet(isPresented: $showingThresholdView, onDismiss: {
+			viewModel.refreshMoistureThreshold()
+		}) {
 			MoistureThresholdView(
-				
+				viewModel: MoistureThresholdViewModel(viewModel.moistureThreshold)
 			)
 		}
         .navigationTitle(viewModel.sensor.name)

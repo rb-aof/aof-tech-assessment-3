@@ -6,10 +6,10 @@ Submit this file in its own pull request (branch `submission-notes`) once you've
 
 | Task | Status (done / partial / not picked) | Pull request |
 |---|---|---|
-| 1. Bug fix | done | |
-| 2. Moisture thresholds | done | |
+| 1. Bug fix | done | https://github.com/rb-aof/aof-tech-assessment-3/pull/1 |
+| 2. Moisture thresholds | done | https://github.com/rb-aof/aof-tech-assessment-3/pull/2 |
 | 3. Offline-first care log | not picked | |
-| 4. Flutter: moisture thresholds | done | |
+| 4. Flutter: moisture thresholds | done | https://github.com/rb-aof/aof-tech-assessment-3/pull/3 |
 
 Roughly how long did you spend in total?
 - 5 hours

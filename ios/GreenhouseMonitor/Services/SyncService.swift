@@ -23,7 +23,7 @@ final class SyncService {
         store.replaceSensors(sensors)
 
         for sensor in sensors {
-            let since = store.readings(for: sensor.id).last?.timestamp
+			let since = store.latestReading(for: sensor.id)?.timestamp
             let readings = try await api.fetchReadings(sensorId: sensor.id, since: since)
             store.append(readings, for: sensor.id)
         }

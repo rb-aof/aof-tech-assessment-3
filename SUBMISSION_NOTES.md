@@ -15,14 +15,13 @@ Roughly how long did you spend in total?
 5 hours
 
 ## Prioritisation
-
+-
 Which tasks did you pick for the 4 hours, and why? What did you skip or simplify?
 I picked the bug task and the two simple feature tasks. I prefer finishing some small tasks in a limited time instead of choosing a big task but end up of unfinished. I think I finihshed most of the requirments in terms of the tasks I chose. I didn't write the unit test for the adding feature on flutter.
--
 
 ## Trade-offs and assumptions
-The tasks 3 is more complex regarding the scale. It has more states and interactive with backend and local storage. By carefully separate the big task into small taskes it can be done. Consideraing the time limitation, I picked the other three tasks in order to deliver a reliable and maintainable products.
 -
+The tasks 3 is more complex regarding the scale. It has more states and interactive with backend and local storage. By carefully separate the big task into small taskes it can be done. Consideraing the time limitation, I picked the other three tasks in order to deliver a reliable and maintainable products.
 
 ## Things you noticed but didn't change
 1. For the sensor detail page, maybe we can add a feature to automately refresh the page, so the new readings can be update in time.

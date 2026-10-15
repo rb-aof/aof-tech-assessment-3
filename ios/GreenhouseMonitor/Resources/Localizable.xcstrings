@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "−" : {
+
+    },
     "Backend" : {
 
     },
@@ -8,6 +11,9 @@
 
     },
     "BaseURL in Backend.plist is not a valid https URL." : {
+
+    },
+    "Cancel" : {
 
     },
     "CandidateEmail \"%@\" in Backend.plist is not a valid email address." : {
@@ -19,10 +25,19 @@
     "Clear cached readings" : {
 
     },
+    "Clear range" : {
+
+    },
     "Debug menu" : {
 
     },
     "Done" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Enter value" : {
 
     },
     "Failure rate" : {
@@ -52,6 +67,37 @@
     "Loading sensors…" : {
 
     },
+    "Minimum must be lower than or equal to maximum. Values: 0–100%." : {
+
+    },
+    "Moisture range" : {
+
+    },
+    "Moisture thresholds" : {
+
+    },
+    "moisture.aboveMaximum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, soil moisture %2$g%%, above maximum of %3$g%%"
+          }
+        }
+      }
+    },
+    "moisture.belowMinimum" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@, soil moisture %2$g%%, below minimum of %3$g%%"
+          }
+        }
+      }
+    },
     "Network" : {
 
     },
@@ -73,6 +119,9 @@
     "Reset server data" : {
 
     },
+    "Save" : {
+
+    },
     "Server" : {
 
     },
@@ -80,6 +129,9 @@
 
     },
     "Set CandidateEmail in ios/GreenhouseMonitor/Resources/Backend.plist to the email address you applied with." : {
+
+    },
+    "Set the acceptable soil-moisture range for this sensor." : {
 
     },
     "Soil moisture" : {

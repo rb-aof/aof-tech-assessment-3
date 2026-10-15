@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:greenhouse_monitor/src/models.dart';
+import 'package:greenhouse_monitor/src/moisture_threshold_handler.dart';
 
 class MoistureThresholdPage extends StatefulWidget {
-  final int initialMin;
-  final int initialMax;
   final ValueChanged<MoistureThreshold?> onSave;
+  final MoistureThreshold initialThreshold;
 
   const MoistureThresholdPage({
     super.key,
-    this.initialMin = 2,
-    this.initialMax = 70,
+    required this.initialThreshold,
     required this.onSave,
   });
 
@@ -23,13 +23,15 @@ class _MoistureThresholdPageState extends State<MoistureThresholdPage> {
   late final TextEditingController _minController;
   late final TextEditingController _maxController;
 
-  bool _cleared = false;
-
   @override
   void initState() {
     super.initState();
-    _minController = TextEditingController(text: widget.initialMin.toString());
-    _maxController = TextEditingController(text: widget.initialMax.toString());
+    _minController = TextEditingController(
+      text: widget.initialThreshold.minMoisture.toString(),
+    );
+    _maxController = TextEditingController(
+      text: widget.initialThreshold.maxMoisture.toString(),
+    );
   }
 
   @override
@@ -43,34 +45,33 @@ class _MoistureThresholdPageState extends State<MoistureThresholdPage> {
     setState(() {
       _minController.clear();
       _maxController.clear();
-      _cleared = true;
     });
   }
 
   void _save() {
-    final min = int.tryParse(_minController.text);
-    final max = int.tryParse(_maxController.text);
+    final min = int.tryParse(_minController.text) ?? 0;
+    final max = int.tryParse(_maxController.text) ?? 0;
 
-    if (!_cleared && (min == null || max == null)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter both moisture thresholds.')),
-      );
-      return;
-    }
+    MoistureThreshold threshold = MoistureThreshold(
+      minMoisture: min,
+      maxMoisture: max,
+      sensorId: widget.initialThreshold.sensorId,
+    );
 
-    if (!_cleared && (min! < 0 || max! > 100 || min > max || max < 0)) {
+    if (threshold.isValid() == false) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Enter values between 0 and 100, with minimum '
-            'no greater than maximum.',
+            'Enter values between 0 and 100, with minimum no greater than maximum.',
           ),
         ),
       );
       return;
     }
 
-    widget.onSave(_cleared ? null : MoistureThreshold(min!, max!));
+    MoistureThresholdHandler().save(threshold);
+
+    widget.onSave(threshold);
 
     Navigator.of(context).pop();
   }
@@ -108,11 +109,7 @@ class _MoistureThresholdPageState extends State<MoistureThresholdPage> {
               borderSide: const BorderSide(color: green, width: 1.5),
             ),
           ),
-          onChanged: (_) {
-            if (_cleared) {
-              setState(() => _cleared = false);
-            }
-          },
+          onChanged: (_) {},
         ),
       ],
     );
@@ -141,10 +138,7 @@ class _MoistureThresholdPageState extends State<MoistureThresholdPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8),
-            child: TextButton(
-              onPressed: () => _save(),
-              child: const Text('Save'),
-            ),
+            child: TextButton(onPressed: _save, child: const Text('Save')),
           ),
         ],
       ),
@@ -220,11 +214,4 @@ class _MoistureThresholdPageState extends State<MoistureThresholdPage> {
       ),
     );
   }
-}
-
-class MoistureThreshold {
-  final int minMoisture;
-  final int maxMoisture;
-
-  const MoistureThreshold(this.minMoisture, this.maxMoisture);
 }

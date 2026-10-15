@@ -30,13 +30,13 @@ The tasks 3 is more complex regarding the scale. It has more states and interact
 
 ## Use of AI tools (overall)
 
-If you used any: which ones, and how they fit into your workflow. Per-PR details go in the PR descriptions.
+- If you used any: which ones, and how they fit into your workflow. Per-PR details go in the PR descriptions.
 
 1. When I was reading the code, I asked AI to help me understand when there are some thing I don't understand immediately.
 2. I am using copilot on both Xcode and VSCode, so it can help me generate code automately.
 
--
+
 
 ## Anything else we should know
 
--
+- No

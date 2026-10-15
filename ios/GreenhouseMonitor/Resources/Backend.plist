@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-  Set CandidateEmail to the email address you applied with.
-  It is sent to the backend as the X-Candidate-Token header and keeps your data separate
-  from other candidates. Until it is set, the app shows a warning and uses the in-app mock.
--->
 <plist version="1.0">
 <dict>
 	<key>BaseURL</key>
 	<string>https://greenhousemonitor.vercel.app</string>
 	<key>CandidateEmail</key>
-	<string></string>
+	<string>jianghao.he@outlook.com</string>
 </dict>
 </plist>
